@@ -7,7 +7,7 @@ class IT(models.Model):#디벨로퍼에 카운트가 들어가야하는 이유�
     count = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.name
+        return self.major
 
 class ITQuestion(models.Model): 
     number = models.IntegerField(unique=True)
