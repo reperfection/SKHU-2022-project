@@ -15,10 +15,29 @@ Including another URLconf
 """
 from django.urls import path
 from main import views
+from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     path('', views.index, name='index'),
-	path('form/', views.form, name='form'),
-    path('submit/', views.submit, name='submit'),
-    path('result/<int:major_id>/', views.result, name='result'),
+	path('it/test/<int:id>', views.itTest, name='itTest'),
+    path('it/submit/', views.itSubmit, name='itSubmit'),
+    path('it/result/<int:major_id>/', views.itResult, name='itResult'),
+    path('IT_QnA/', views.IT_QnA.as_view()),
+
+    path('humanity/test/<int:id>', views.humanityTest, name='humanityTest'),
+    path('humanity/submit/', views.humanitySubmit, name='humanitySubmit'),
+    path('humanity/result/<int:major_id>/', views.humanityResult, name='humanityResult'),
+    path('Humanity_QnA/', views.Humanity_QnA.as_view()),
+
+    path('society/test/<int:id>', views.societyTest, name='societyTest'),
+    path('society/submit/', views.societySubmit, name='societySubmit'),
+    path('society/result/<int:major_id>/', views.societyResult, name='societyResult'),
+    path('society_QnA/', views.Society_QnA.as_view()),
+
+    path('mecon/contest/<int:id>', views.meconTest, name='mediacontentTest'),
+    path('mecon/submit/', views.meconSubmit, name='mediacontentSubmit'),
+    path('mecon/result/<int:major_id>/', views.meconResult, name='mediacontentResult'),
+    path('mecon_QnA/', views.MediaContents_QnA.as_view()), 
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
